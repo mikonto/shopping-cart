@@ -5,13 +5,14 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 
 const StyledLogo = styled.img`
-  height: 60px;
+  height: 40px;
   width: auto;
 `;
 
 const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: lightblue;
   height: 60px;
   width: 100%;
