@@ -1,11 +1,15 @@
-import Badge from "@mui/material/Badge";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import styled from "styled-components";
 
-const ShoppingCart = ({badgeContent}) => {
+const StyledShoppingCart = styled.div`
+  background: #FFF0F5;
+  height: calc(100vh - 60px);
+`;
+
+const ShoppingCart = () => {
   return (
-    <Badge badgeContent={badgeContent} color="primary">
-      <ShoppingCartIcon />
-    </Badge>
+    <>
+      <StyledShoppingCart>Shopping Cart</StyledShoppingCart>
+    </>
   );
 };
 
