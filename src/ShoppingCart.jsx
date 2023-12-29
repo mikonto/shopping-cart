@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const StyledShoppingCart = styled.div`
-  background: #fff0f5;
+  background: white;
   flex-grow: 1;
+  padding: 4px;
 `;
 
 const ShoppingCart = () => {

@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const StyledHome = styled.div`
-  background: #ffe4c4;
+  background: white;
   flex-grow: 1;
+  padding: 4px;
 `;
 
 const Home = () => {

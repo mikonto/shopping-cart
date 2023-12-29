@@ -13,7 +13,7 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: lightblue;
+  background: skyblue;
   height: 60px;
   width: 100%;
 `;
