@@ -6,8 +6,8 @@ const StyledProducts = styled.div`
   background: white;
   flex-grow: 1;
   display: grid;
-  gap: 4px;
-  padding: 4px;
+  gap: 8px;
+  padding: 8px;
   grid-auto-rows: minmax(250px, auto);
   grid-template-columns: repeat(4, 1fr);
 
@@ -49,8 +49,6 @@ const Products = () => {
             key={product.id}
             title={product.title}
             price={product.price}
-            description={product.description}
-            category={product.category}
             rating={product.rating.rate}
             ratingCount={product.rating.count}
             image={product.image}

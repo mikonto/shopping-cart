@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { Normalize } from "styled-normalize";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
-import Home from "./Home.jsx";
 
 const router = createBrowserRouter([
   {
