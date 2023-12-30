@@ -6,6 +6,7 @@ import ShoppingCart from "./ShoppingCart";
 import { useState } from "react"; // Importing useState from React
 import { useParams } from "react-router-dom"; // Importing useParams from react-router-dom
 import styled from "styled-components";
+import toast, { Toaster } from "react-hot-toast";
 
 const StyledApp = styled.div`
   display: flex;
@@ -43,13 +44,22 @@ function App() {
         return [...currentCart, { details, quantity: quantityNumber }];
       }
     });
+    toast.success("Added to cart", {
+      style: {
+        marginTop: "65px",
+      },
+    });
   };
 
   const removeFromCart = (id) => {
     setShoppingCart((currentCart) =>
       currentCart.filter((item) => item.details.id !== id)
     );
-    console.log("test");
+    toast.success("Removed from cart", {
+      style: {
+        marginTop: "65px",
+      },
+    });
   };
 
   const updateQuantity = (id, newQuantity) => {
@@ -64,6 +74,7 @@ function App() {
 
   return (
     <StyledApp>
+      <Toaster position="top-right" reverseOrder={false} />
       <GlobalStyle />
       <Header shoppingCartCount={shoppingCartCount} />
       {name === "products" ? (

@@ -7,7 +7,11 @@ const StyledShoppingCart = styled.div`
   gap: 12px;
   flex-grow: 1;
   padding: 12px;
-  grid-template-columns: repeat(2, 0.4fr);
+  grid-template-columns: ${({ hasItems }) =>
+    hasItems ? "repeat(2, 1fr)" : "repeat(1, 1fr)"};
+
+  grid-template-rows: 0.5fr auto;
+  justify-content: center;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(1, 1fr);
@@ -18,6 +22,10 @@ const Card = styled.div`
   background: white;
   display: flex;
   flex-direction: column;
+  justify-content: ${({ shoppingCartEmpty }) =>
+    shoppingCartEmpty ? "center" : "flex-start"};
+  align-items: ${({ shoppingCartEmpty }) =>
+    shoppingCartEmpty ? "center" : "stretch"};
   padding: 12px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -84,10 +92,18 @@ const ShoppingCart = ({ shoppingCart, removeFromCart, updateQuantity }) => {
     updateQuantity(id, newQuantity);
   };
 
+  const totalSum = () => {
+    const sum = shoppingCart.reduce((total, cartItem) => {
+      return total + cartItem.details.price * cartItem.quantity;
+    }, 0);
+
+    return Number(sum.toFixed(2));
+  };
+
   return hasItems ? (
     <>
       <Title>Shopping cart</Title>
-      <StyledShoppingCart>
+      <StyledShoppingCart hasItems={hasItems}>
         <Card>
           {shoppingCart.map((cartItem) => (
             <ItemCard key={cartItem.details.id}>
@@ -107,19 +123,21 @@ const ShoppingCart = ({ shoppingCart, removeFromCart, updateQuantity }) => {
                 }
               />
               <RedButton onClick={() => removeFromCart(cartItem.details.id)}>
-                Delete
+                Remove
               </RedButton>
             </ItemCard>
           ))}
         </Card>
-        <Card>Check out</Card>
+        <Card>
+          <p>Total: {totalSum()}</p>
+        </Card>
       </StyledShoppingCart>
     </>
   ) : (
     <>
       <Title>Shopping cart</Title>
       <StyledShoppingCart>
-        <Card>
+        <Card shoppingCartEmpty={true}>
           <p>Your shopping cart is empty</p>
           <Link to="/products">
             <BlueButton>Shop now</BlueButton>
