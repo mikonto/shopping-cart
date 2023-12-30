@@ -63,7 +63,7 @@ const ProductCard = ({ product, addToCart }) => {
         <b>{product.title}</b>
       </Title>
 
-      <b>{product.price} $</b>
+      <b>{product.price}€</b>
 
       <RatingContainer>
         <Rating

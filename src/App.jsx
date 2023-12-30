@@ -45,6 +45,23 @@ function App() {
     });
   };
 
+  const removeFromCart = (id) => {
+    setShoppingCart((currentCart) =>
+      currentCart.filter((item) => item.details.id !== id)
+    );
+    console.log("test");
+  };
+
+  const updateQuantity = (id, newQuantity) => {
+    setShoppingCart((currentCart) =>
+      currentCart.map((item) =>
+        item.details.id === id
+          ? { ...item, quantity: parseInt(newQuantity, 10) }
+          : item
+      )
+    );
+  };
+
   return (
     <StyledApp>
       <GlobalStyle />
@@ -52,7 +69,11 @@ function App() {
       {name === "products" ? (
         <Products addToCart={addToCart} />
       ) : name === "shopping-cart" ? (
-        <ShoppingCart shoppingCart={shoppingCart} />
+        <ShoppingCart
+          shoppingCart={shoppingCart}
+          removeFromCart={removeFromCart}
+          updateQuantity={updateQuantity}
+        />
       ) : (
         <Home />
       )}
