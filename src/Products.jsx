@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 
 const StyledProducts = styled.div`
-  background: white;
   flex-grow: 1;
   display: grid;
-  gap: 8px;
-  padding: 8px;
+  gap: 12px;
+  padding: 12px;
   grid-auto-rows: minmax(250px, auto);
   grid-template-columns: repeat(4, 1fr);
 
@@ -20,7 +19,13 @@ const StyledProducts = styled.div`
   }
 `;
 
-const Products = () => {
+const Title = styled.h1`
+  background: #f6f6f6;
+  padding: 12px;
+  margin: 8px;
+`;
+
+const Products = ({ addToCart }) => {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,26 +37,33 @@ const Products = () => {
         // Limit the array to the first 9 items
         const limitedProducts = response.slice(0, 8);
         setProducts(limitedProducts);
-        console.log(limitedProducts);
       })
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, []);
 
-  if (error) return <p>A network error was encountered</p>;
-  if (loading) return <p>Loading...</p>;
+  if (error)
+    return (
+      <StyledProducts>
+        <p>A network error was encountered</p>
+      </StyledProducts>
+    );
+  if (loading)
+    return (
+      <StyledProducts>
+        <p>Loading...</p>
+      </StyledProducts>
+    );
 
   return (
     <>
+      <Title>Products</Title>
       <StyledProducts>
         {products.map((product) => (
           <ProductCard
             key={product.id}
-            title={product.title}
-            price={product.price}
-            rating={product.rating.rate}
-            ratingCount={product.rating.count}
-            image={product.image}
+            product={product}
+            addToCart={addToCart}
           />
         ))}
       </StyledProducts>

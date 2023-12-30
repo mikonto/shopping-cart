@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 const StyledLogo = styled.img`
   height: 40px;
   width: auto;
+  margin-left: 10px;
+  margin-top: 10px;
 `;
 
 const StyledHeader = styled.div`
@@ -40,8 +42,7 @@ const StyledMenuItem = styled(Link)`
   }
 `;
 
-const Header = () => {
-  const badgeContent = 4;
+const Header = ({ shoppingCartCount }) => {
   return (
     <StyledHeader>
       <Link to="/">
@@ -51,7 +52,7 @@ const Header = () => {
         <StyledMenuItem to="/">Home</StyledMenuItem>
         <StyledMenuItem to="/products">Products</StyledMenuItem>
         <StyledMenuItem to="/shopping-cart">
-          <Badge badgeContent={badgeContent} color="primary">
+          <Badge badgeContent={shoppingCartCount} color="primary">
             <ShoppingCartIcon />
           </Badge>
         </StyledMenuItem>

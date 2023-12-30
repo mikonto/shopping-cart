@@ -3,25 +3,33 @@ import styled from "styled-components";
 import Rating from "@mui/material/Rating";
 
 const StyledProductCard = styled.div`
+  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 12px;
-  border: 1px solid #d3d3d3;
+  padding-bottom: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 `;
 
-const StyledImage = styled.img`
+const Image = styled.img`
   height: 170px;
 `;
 
-const StyledRatingContainer = styled.div`
+const Title = styled.p`
+  height: 40px; // Assuming each line of text is approximately 20px high
+  overflow: hidden; // Optional: prevents text from overflowing the set height
+`;
+
+const RatingContainer = styled.div`
   display: flex;
   justify-content: center; /* Centralize content */
   align-items: center; /* Align items vertically */
   gap: 6px;
 `;
 
-const AddToCart = styled.div`
+const AddToCartContainer = styled.div`
   display: flex;
   gap: 8px;
 `;
@@ -36,7 +44,6 @@ const AddToCartButton = styled.button`
   border: none; /* No border */
   border-radius: 4px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
-  font-size: 0.9rem; /* Font size */
   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 
   &:hover {
@@ -44,26 +51,30 @@ const AddToCartButton = styled.button`
   }
 `;
 
-const ProductCard = ({ title, price, rating, ratingCount, image }) => {
+const ProductCard = ({ product, addToCart }) => {
   const [num, setNum] = useState(1);
 
   return (
     <StyledProductCard>
       <p>
-        <StyledImage src={image} alt="alt" />
+        <Image src={product.image} alt="alt" />
       </p>
-      <p>
-        <b>{title}</b>
-      </p>
-      <p>
-        <b>{price} $</b>
-      </p>
+      <Title>
+        <b>{product.title}</b>
+      </Title>
 
-      <StyledRatingContainer>
-        <Rating name="read-only" value={rating} readOnly precision={0.1} />
-        <p>{ratingCount}</p>
-      </StyledRatingContainer>
-      <AddToCart>
+      <b>{product.price} $</b>
+
+      <RatingContainer>
+        <Rating
+          name="read-only"
+          value={product.rating.rate}
+          readOnly
+          precision={0.1}
+        />
+        <p>{product.rating.count}</p>
+      </RatingContainer>
+      <AddToCartContainer>
         <AddToCartInput
           type="number"
           min={1}
@@ -72,8 +83,10 @@ const ProductCard = ({ title, price, rating, ratingCount, image }) => {
           value={num}
           onChange={(e) => setNum(e.target.value)}
         />
-        <AddToCartButton>Add to cart</AddToCartButton>
-      </AddToCart>
+        <AddToCartButton onClick={() => addToCart(product, num)}>
+          Add to cart
+        </AddToCartButton>
+      </AddToCartContainer>
     </StyledProductCard>
   );
 };

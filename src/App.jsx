@@ -3,26 +3,56 @@ import Header from "./Header";
 import Home from "./Home";
 import Products from "./Products";
 import ShoppingCart from "./ShoppingCart";
-import { useParams } from "react-router-dom";
+import { useState } from "react"; // Importing useState from React
+import { useParams } from "react-router-dom"; // Importing useParams from react-router-dom
 import styled from "styled-components";
 
 const StyledApp = styled.div`
   display: flex;
+  background: #f6f6f6;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
 `;
 
 function App() {
   const { name } = useParams();
+  const [shoppingCart, setShoppingCart] = useState([]);
+  const shoppingCartCount = shoppingCart.reduce((total, currentItem) => {
+    return total + currentItem.quantity;
+  }, 0);
+
+  const addToCart = (details, quantity) => {
+    const quantityNumber = parseInt(quantity, 10);
+
+    setShoppingCart((currentCart) => {
+      // Check if product is already in the cart
+      const productExists = currentCart.some(
+        (item) => item.details.id === details.id
+      );
+
+      if (productExists) {
+        // Product found
+        return currentCart.map((item) =>
+          item.details.id === details.id
+            ? { ...item, quantity: item.quantity + quantityNumber }
+            : item
+        );
+      } else {
+        // Product not found
+        return [...currentCart, { details, quantity: quantityNumber }];
+      }
+    });
+  };
 
   return (
     <StyledApp>
       <GlobalStyle />
-      <Header />
+      <Header shoppingCartCount={shoppingCartCount} />
       {name === "products" ? (
-        <Products />
+        <Products addToCart={addToCart} />
       ) : name === "shopping-cart" ? (
-        <ShoppingCart />
+        <ShoppingCart shoppingCart={shoppingCart} />
       ) : (
         <Home />
       )}
