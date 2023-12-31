@@ -74,7 +74,14 @@ function App() {
 
   return (
     <StyledApp>
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster
+        containerStyle={{
+          top: 10,
+        }}
+        position="top-right"
+        reverseOrder={false}
+        gutter={-40}
+      />
       <GlobalStyle />
       <Header shoppingCartCount={shoppingCartCount} />
       {name === "products" ? (
