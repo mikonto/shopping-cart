@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logoImage from "./assets/logo.png";
+import logoImage from "../assets/logo.png";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";

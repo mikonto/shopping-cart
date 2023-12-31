@@ -1,8 +1,8 @@
 import GlobalStyle from "./GlobalStyle";
-import Header from "./Header";
-import Home from "./Home";
-import Products from "./Products";
-import ShoppingCart from "./ShoppingCart";
+import Header from "./components/Header";
+import Home from "./pages/Home/Home";
+import Products from "./pages/Products/Products";
+import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 import { useState } from "react"; // Importing useState from React
 import { useParams } from "react-router-dom"; // Importing useParams from react-router-dom
 import styled from "styled-components";
