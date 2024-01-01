@@ -51,8 +51,8 @@ const Header = ({ shoppingCartCount }) => {
       <StyledMenu>
         <StyledMenuItem to="/">Home</StyledMenuItem>
         <StyledMenuItem to="/products">Products</StyledMenuItem>
-        <StyledMenuItem to="/shopping-cart">
-          <Badge badgeContent={shoppingCartCount} color="primary">
+        <StyledMenuItem to="/shopping-cart" data-testid="shopping-cart-link">
+          <Badge badgeContent={shoppingCartCount} color="primary" data-testid="badge">
             <ShoppingCartIcon />
           </Badge>
         </StyledMenuItem>
