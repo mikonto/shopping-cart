@@ -3,6 +3,7 @@ import logoImage from "../assets/logo.png";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const StyledLogo = styled.img`
   height: 40px;
@@ -52,13 +53,21 @@ const Header = ({ shoppingCartCount }) => {
         <StyledMenuItem to="/">Home</StyledMenuItem>
         <StyledMenuItem to="/products">Products</StyledMenuItem>
         <StyledMenuItem to="/shopping-cart" data-testid="shopping-cart-link">
-          <Badge badgeContent={shoppingCartCount} color="primary" data-testid="badge">
+          <Badge
+            badgeContent={shoppingCartCount}
+            color="primary"
+            data-testid="badge"
+          >
             <ShoppingCartIcon />
           </Badge>
         </StyledMenuItem>
       </StyledMenu>
     </StyledHeader>
   );
+};
+
+Header.propTypes = {
+  shoppingCartCount: PropTypes.number.isRequired,
 };
 
 export default Header;
