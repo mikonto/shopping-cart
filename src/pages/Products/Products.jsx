@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import PropTypes from "prop-types";
 
 const StyledProducts = styled.div`
   flex-grow: 1;
@@ -69,6 +70,10 @@ const Products = ({ addToCart }) => {
       </StyledProducts>
     </>
   );
+};
+
+Products.propTypes = {
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default Products;
