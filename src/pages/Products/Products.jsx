@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import PropTypes from "prop-types";
+import { fetchProducts } from "../../api/ProductService";
 
 const StyledProducts = styled.div`
   flex-grow: 1;
@@ -32,13 +33,8 @@ const Products = ({ addToCart }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((response) => {
-        // Limit the array to the first 9 items
-        const limitedProducts = response.slice(0, 8);
-        setProducts(limitedProducts);
-      })
+    fetchProducts()
+      .then((products) => setProducts(products))
       .catch((error) => setError(error))
       .finally(() => setLoading(false));
   }, []);
