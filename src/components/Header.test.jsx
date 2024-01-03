@@ -24,13 +24,16 @@ describe("Header component", () => {
     const homeLink = screen.getByRole("link", { name: "Home" });
     const productsLink = screen.getByRole("link", { name: "Products" });
     const shoppingCartLink = screen.getByTestId("shopping-cart-link");
+
     expect(homeLink).toBeInTheDocument();
     expect(productsLink).toBeInTheDocument();
     expect(shoppingCartLink).toBeInTheDocument();
-  });
-});
 
-describe("Header component", () => {
+    expect(homeLink).toHaveAttribute("href", "/");
+    expect(productsLink).toHaveAttribute("href", "/products");
+    expect(shoppingCartLink).toHaveAttribute("href", "/shopping-cart");
+  });
+
   it("displays correct badge count", () => {
     const count = 5;
     render(
@@ -54,5 +57,14 @@ describe("Header component", () => {
 
     const badgeContent = screen.queryByTestId("badge");
     expect(badgeContent.textContent).toBe("");
+  });
+
+  it("it renders correctly", () => {
+    const { container } = render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
+    expect(container).toMatchSnapshot();
   });
 });
