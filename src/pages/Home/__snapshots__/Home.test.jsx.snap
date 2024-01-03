@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Home component > it renders correctly 1`] = `
+<div>
+  <div
+    class="sc-bcXGCL bOHEED"
+  >
+    <div
+      class="sc-gswONk gPsxiH"
+    >
+      <h1
+        class="sc-dkrGBB dZvstf"
+      >
+        Welcome to Webshop!
+      </h1>
+    </div>
+    <div
+      class="sc-gswONk gPsxiH"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras pulvinar mattis nunc sed.
+      </p>
+    </div>
+    <div
+      class="sc-gswONk gPsxiH"
+    >
+      <a
+        href="/products"
+      >
+        <button
+          class="sc-hLBatu fZVKwj"
+        >
+          Shop now
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;
