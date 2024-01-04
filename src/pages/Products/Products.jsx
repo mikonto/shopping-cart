@@ -69,7 +69,7 @@ const Products = ({ addToCart }) => {
 };
 
 Products.propTypes = {
-  addToCart: PropTypes.func.isRequired,
+  addToCart: PropTypes.func,
 };
 
 export default Products;
