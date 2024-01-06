@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ShoppingCartEmpty component > it renders correctly 1`] = `
+<div>
+  <div
+    class="sc-bcXGCL dCiGnF"
+  >
+    <p>
+      Your shopping cart is empty
+    </p>
+    <a
+      href="/products"
+    >
+      <button
+        class="sc-gswONk bOaZaE"
+      >
+        Shop now
+      </button>
+    </a>
+    <div
+      class="sc-dkrGBB dMZkSX"
+    />
+  </div>
+</div>
+`;
