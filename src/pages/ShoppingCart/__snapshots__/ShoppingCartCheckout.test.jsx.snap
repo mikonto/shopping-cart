@@ -1,0 +1,111 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ShoppingCartCheckout component > it renders correctly 1`] = `
+<div>
+  <h1
+    class="sc-ksBlXE QsXHM"
+  >
+    Shopping cart
+  </h1>
+  <div
+    class="sc-bqWyeZ kFghZs"
+    style="grid-template-columns: repeat(2, 1fr);"
+  >
+    <div
+      class="sc-bcXGCL kSAnLr"
+    >
+      <div
+        class="sc-bcXGCL sc-gswONk kSAnLr cVlEDe"
+      >
+        <img
+          alt="alt"
+          class="sc-dkrGBB dceXiZ"
+          src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+        />
+        <p>
+          Mens Casual Premium Slim Fit T-Shirts
+        </p>
+        <p>
+          <b>
+            22.3
+            €
+          </b>
+        </p>
+        <input
+          class="sc-hLBatu kGSFQL"
+          max="10"
+          min="1"
+          step="1"
+          type="number"
+          value="1"
+        />
+        <button
+          class="sc-eDvShL gYxOWQ"
+        >
+          Remove
+        </button>
+      </div>
+    </div>
+    <div
+      class="sc-jSVask dYJdOV"
+    >
+      <p>
+        <b>
+          Order summary
+        </b>
+      </p>
+      <ul
+        class="sc-gKPSgB iTUalq"
+      >
+        <li
+          class="sc-iBYPxa ffchxx"
+        >
+          1
+           x 
+          Mens Casual Premium Slim Fit T-Shirts
+        </li>
+      </ul>
+      <div
+        class="sc-pyeOL bhQZRJ"
+      />
+      <ul
+        class="sc-gKPSgB iTUalq"
+      >
+        <li
+          class="sc-ftTHlr gqLuly"
+        >
+          Products total: 
+          22.3
+          €
+        </li>
+        <li
+          class="sc-ftTHlr gqLuly"
+        >
+          Shipping costs: 8€
+        </li>
+      </ul>
+      <div
+        class="sc-pyeOL bhQZRJ"
+      />
+      <ul
+        class="sc-gKPSgB iTUalq"
+      >
+        <li
+          class="sc-ftTHlr gqLuly"
+        >
+          <b>
+            Total: 
+            30.3
+            €
+          </b>
+        </li>
+      </ul>
+      <button
+        class="sc-jrcSHq kJUJDY"
+      >
+        To checkout
+      </button>
+    </div>
+  </div>
+</div>
+`;
