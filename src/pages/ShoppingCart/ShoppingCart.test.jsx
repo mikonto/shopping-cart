@@ -39,7 +39,7 @@ describe("ShoppingCart component", () => {
     expect(title).toBeInTheDocument();
   });
 
-  it("renders the empty shopping cart", () => {
+  it("renders the correct text", () => {
     const mockRemoveFromCart = vi.fn();
     const mockUpdateQuantity = vi.fn();
 
