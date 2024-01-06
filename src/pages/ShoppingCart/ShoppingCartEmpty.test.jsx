@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import ShoppingCartEmpty from "./ShoppingCartEmpty";
-import { vi } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 
 describe("ShoppingCartEmpty component", () => {
