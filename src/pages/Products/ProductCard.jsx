@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Rating from "@mui/material/Rating";
+import PropTypes from "prop-types";
 
 const StyledProductCard = styled.div`
   background: white;
@@ -89,6 +90,11 @@ const ProductCard = ({ product, addToCart }) => {
       </AddToCartContainer>
     </StyledProductCard>
   );
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.object,
+  addToCart: PropTypes.func,
 };
 
 export default ProductCard;
