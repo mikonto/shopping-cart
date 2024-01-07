@@ -78,7 +78,7 @@ const ShoppingCartDetails = ({
   );
 };
 
-ShoppingCart.propTypes = {
+ShoppingCartDetails.propTypes = {
   shoppingCart: PropTypes.array,
   removeFromCart: PropTypes.func,
   updateQuantity: PropTypes.func,
