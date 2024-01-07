@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const StyledShoppingCartDetails = styled.div`
   background: white;
@@ -75,6 +76,12 @@ const ShoppingCartDetails = ({
       ))}
     </StyledShoppingCartDetails>
   );
+};
+
+ShoppingCart.propTypes = {
+  shoppingCart: PropTypes.array,
+  removeFromCart: PropTypes.func,
+  updateQuantity: PropTypes.func,
 };
 
 export default ShoppingCartDetails;
