@@ -3,19 +3,18 @@
 exports[`ShoppingCart component > it renders correctly 1`] = `
 <div>
   <h1
-    class="sc-ksBlXE QsXHM"
+    class="sc-fnGhNW hQKTfR"
   >
     Shopping cart
   </h1>
   <div
-    class="sc-bqWyeZ kFghZs"
-    style="grid-template-columns: repeat(2, 1fr);"
+    class="sc-bqWyeZ sc-ksBlXE iUvtCI iVDybW"
   >
     <div
       class="sc-bcXGCL kSAnLr"
     >
       <div
-        class="sc-bcXGCL sc-gswONk kSAnLr cVlEDe"
+        class="sc-bcXGCL sc-gswONk kSAnLr bQckEB"
       >
         <img
           alt="alt"
