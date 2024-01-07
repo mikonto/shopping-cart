@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const StyledShoppingCartCheckout = styled.div`
   background: white;
@@ -85,6 +86,10 @@ const ShoppingCartCheckout = ({ shoppingCart }) => {
       <BlueButton>To checkout</BlueButton>
     </StyledShoppingCartCheckout>
   );
+};
+
+ShoppingCartCheckout.propTypes = {
+  shoppingCart: PropTypes.array,
 };
 
 export default ShoppingCartCheckout;
