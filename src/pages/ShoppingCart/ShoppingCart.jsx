@@ -30,29 +30,27 @@ const Title = styled.h1`
 const ShoppingCart = ({ shoppingCart, removeFromCart, updateQuantity }) => {
   const hasItems = shoppingCart.length > 0;
 
-  return hasItems ? (
+  return (
     <>
       <Title>Shopping cart</Title>
-      {/* conditional style: items in cart -> two grid items */}
-      <StyledShoppingCart style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
-        <ShoppingCartDetails
-          shoppingCart={shoppingCart}
-          removeFromCart={removeFromCart}
-          updateQuantity={updateQuantity}
-        />
-        <ShoppingCartCheckout shoppingCart={shoppingCart} />
-      </StyledShoppingCart>
-    </>
-  ) : (
-    <>
-      <Title>Shopping cart</Title>
-      {/* conditional style: cart empty -> one grid item */}
-      <StyledShoppingCart style={{ gridTemplateColumns: "repeat(1, 1fr)" }}>
-        <ShoppingCartEmpty />
+      <StyledShoppingCart style={{ gridTemplateColumns: hasItems ? "repeat(2, 1fr)" : "repeat(1, 1fr)" }}>
+        {hasItems ? (
+          <>
+            <ShoppingCartDetails
+              shoppingCart={shoppingCart}
+              removeFromCart={removeFromCart}
+              updateQuantity={updateQuantity}
+            />
+            <ShoppingCartCheckout shoppingCart={shoppingCart} />
+          </>
+        ) : (
+          <ShoppingCartEmpty />
+        )}
       </StyledShoppingCart>
     </>
   );
 };
+
 
 ShoppingCart.propTypes = {
   shoppingCart: PropTypes.array,
