@@ -4,21 +4,25 @@ import ShoppingCartCheckout from "./ShoppingCartCheckout";
 import ShoppingCartEmpty from "./ShoppingCartEmpty";
 import PropTypes from "prop-types";
 
-const StyledShoppingCart = styled.div`
+// Base style
+const StyledShoppingCartBase = styled.div`
   display: grid;
   gap: 12px;
   flex-grow: 1;
   padding: 12px;
-  grid-template-columns: ${({ hasItems, ...props }) => {
-    return hasItems ? "repeat(2, 1fr)" : "repeat(1, 1fr)";
-  }};
-
   grid-template-rows: 0.5fr auto;
   justify-content: center;
+`;
 
-  @media (max-width: 1200px) {
+const StyledShoppingCartWithItems = styled(StyledShoppingCartBase)`
+  grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 1000px) {
     grid-template-columns: repeat(1, 1fr);
   }
+`;
+
+const StyledShoppingCartEmpty = styled(StyledShoppingCartBase)`
+  grid-template-columns: repeat(1, 1fr);
 `;
 
 const Title = styled.h1`
@@ -33,24 +37,23 @@ const ShoppingCart = ({ shoppingCart, removeFromCart, updateQuantity }) => {
   return (
     <>
       <Title>Shopping cart</Title>
-      <StyledShoppingCart style={{ gridTemplateColumns: hasItems ? "repeat(2, 1fr)" : "repeat(1, 1fr)" }}>
-        {hasItems ? (
-          <>
-            <ShoppingCartDetails
-              shoppingCart={shoppingCart}
-              removeFromCart={removeFromCart}
-              updateQuantity={updateQuantity}
-            />
-            <ShoppingCartCheckout shoppingCart={shoppingCart} />
-          </>
-        ) : (
+      {hasItems ? (
+        <StyledShoppingCartWithItems>
+          <ShoppingCartDetails
+            shoppingCart={shoppingCart}
+            removeFromCart={removeFromCart}
+            updateQuantity={updateQuantity}
+          />
+          <ShoppingCartCheckout shoppingCart={shoppingCart} />
+        </StyledShoppingCartWithItems>
+      ) : (
+        <StyledShoppingCartEmpty>
           <ShoppingCartEmpty />
-        )}
-      </StyledShoppingCart>
+        </StyledShoppingCartEmpty>
+      )}
     </>
   );
 };
-
 
 ShoppingCart.propTypes = {
   shoppingCart: PropTypes.array,
