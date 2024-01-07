@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ShoppingCartDetails from "./ShoppingCartDetails";
 import ShoppingCartCheckout from "./ShoppingCartCheckout";
 import ShoppingCartEmpty from "./ShoppingCartEmpty";
+import PropTypes from "prop-types";
 
 const StyledShoppingCart = styled.div`
   display: grid;
@@ -51,6 +52,12 @@ const ShoppingCart = ({ shoppingCart, removeFromCart, updateQuantity }) => {
       </StyledShoppingCart>
     </>
   );
+};
+
+ShoppingCart.propTypes = {
+  shoppingCart: PropTypes.array,
+  removeFromCart: PropTypes.func,
+  updateQuantity: PropTypes.func,
 };
 
 export default ShoppingCart;
